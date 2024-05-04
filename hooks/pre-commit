@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+if ! tofu fmt -check; then
+    tofu fmt
+    echo "Formatting issues detected and fixed, please stage the new changes and re-commit" 1>&2
+    echo "Your changes were NOT committed" 1>&2
+    exit 1
+fi
+
+if ! tofu -chdir="multi-region-module/" fmt -check; then
+    tofu -chdir="multi-region-module/" fmt
+    echo "Formatting issues detected and fixed, please stage the new changes and re-commit" 1>&2
+    echo "Your changes were NOT committed" 1>&2
+    exit 1
+fi

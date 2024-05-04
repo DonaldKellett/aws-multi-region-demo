@@ -33,6 +33,17 @@ tofu plan
 tofu apply
 ```
 
+Upon resource creation, the public and private IP address of EC2 instances across both regions are displayed in the console, e.g.:
+
+```text
+my-primary-ec2-private-ip = "x.x.x.x"
+my-primary-ec2-public-ip = "x.x.x.x"
+my-secondary-ec2-private-ip = "x.x.x.x"
+my-secondary-ec2-public-ip = "x.x.x.x"
+```
+
+Now log in to each EC2 instance via SSH with username `ubuntu` and the corresponding public IP address, then confirm that they can ping each other's private IP address.
+
 ### Supported variables
 
 Refer to the table below for a list of supported OpenTofu variables:

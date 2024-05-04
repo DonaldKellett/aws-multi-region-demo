@@ -16,12 +16,12 @@ jobs:
     - name: Initialize OpenTofu without backend
       run: |
         tofu init -backend=false
-        tofu -chdir="multi-region-demo/" init -backend=false
+        tofu -chdir="multi-region-module/" init -backend=false
     - name: Check OpenTofu formatting
       run: |
         tofu fmt -check
-        tofu -chdir="multi-region-demo/" fmt -check
+        tofu -chdir="multi-region-module/" fmt -check
     - name: Validate OpenTofu configuration
       run: |
         tofu validate
-        tofu -chdir="multi-region-demo/" validate
+        tofu -chdir="multi-region-module/" validate

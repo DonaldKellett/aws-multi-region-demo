@@ -9,16 +9,18 @@ provider "aws" {
 }
 
 module "primary_region" {
-  source         = "./multi-region-module"
-  vpc_cidr_block = var.primary_vpc_cidr
+  source            = "./multi-region-module"
+  vpc_cidr_block    = var.primary_vpc_cidr
+  subnet_cidr_block = var.primary_subnet_cidr
   providers = {
     aws = aws.primary_region
   }
 }
 
 module "secondary_region" {
-  source         = "./multi-region-module"
-  vpc_cidr_block = var.secondary_vpc_cidr
+  source            = "./multi-region-module"
+  vpc_cidr_block    = var.secondary_vpc_cidr
+  subnet_cidr_block = var.secondary_subnet_cidr
   providers = {
     aws = aws.secondary_region
   }

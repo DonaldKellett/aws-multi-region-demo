@@ -17,3 +17,13 @@ variable "secondary_vpc_cidr" {
   type    = string
   default = "10.2.0.0/16"
 }
+
+variable "primary_subnet_cidr" {
+  type    = string
+  default = "10.1.1.0/24"
+}
+
+variable "secondary_subnet_cidr" {
+  type    = string
+  default = "10.2.1.0/24"
+}

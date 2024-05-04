@@ -45,6 +45,8 @@ Refer to the table below for a list of supported OpenTofu variables:
 | `secondary_vpc_cidr` | `string` | - | `"10.2.0.0/16"` | VPC CIDR block for secondary AWS region. Must be an [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) subnet |
 | `primary_subnet_cidr` | `string` | - | `"10.1.1.0/24"` | Subnet CIDR block for primary AWS region. Must be a valid subnet of the primary VPC CIDR block |
 | `secondary_subnet_cidr` | `string` | - | `"10.2.1.0/24"` | Subnet CIDR block for secondary AWS region. Must be a valid subnet of the secondary VPC CIDR block |
+| `ssh_pubkey_path` | `string` | - | `"~/.ssh/id_rsa.pub"` | Path to your SSH public key. Evaluated with `pathexpand()` before use |
+| `instance_type` | `string` | - | `"t3.micro"` | EC2 instance type for both regions |
 
 ## License
 

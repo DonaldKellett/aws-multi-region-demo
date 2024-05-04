@@ -25,3 +25,28 @@ resource "aws_route_table_association" "my-rtb-association" {
   route_table_id = aws_route_table.my-rtb.id
   subnet_id      = aws_subnet.my-subnet.id
 }
+
+resource "aws_security_group" "my-sg" {
+  name        = "my-sg"
+  description = "My security group"
+  vpc_id      = aws_vpc.my-vpc.id
+}
+
+resource "aws_security_group_rule" "my-sg-ingress-0" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.my-sg.id
+}
+
+resource "aws_security_group_rule" "my-sg-egress-0" {
+  type              = "egress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
+  cidr_blocks       = ["0.0.0.0/0"]
+  ipv6_cidr_blocks  = ["::/0"]
+  security_group_id = aws_security_group.my-sg.id
+}
